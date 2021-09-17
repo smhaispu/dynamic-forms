@@ -2,16 +2,16 @@ import React, { useContext, useEffect, useState } from "react";
 import { ISelect } from "../../models";
 import { Context } from "../../state-management/context";
 import { Label, SlidePrevious, SlideNext } from "../index.style";
-import QuestionIndex from "../SubComponents/QuestionIndex";
+import QuestionIndex from "../layouts/QuestionIndex";
 import {
-  MultiSelectWrapper,
-  StyledMultiSelect,
+  SingleSelectWrapper,
+  StyledSingleSelect,
   GroupedRadio,
   InputWrapper,
   RadioDescription,
-} from "./MultiSelect.style";
+} from "./SingleSelect.style";
 
-const MultiSelect = ({
+const SingleSelect = ({
   headline,
   identifier,
   choices,
@@ -24,7 +24,17 @@ const MultiSelect = ({
 
   const onHandleChange = (index: number) => {
     const valueRef = [...value];
+    valueRef.forEach((val) => {
+      val.selected = false;
+    });
     valueRef[index].selected = !value[index].selected;
+    setValue(valueRef);
+  };
+  const onHandleClick = (index: number) => {
+    const valueRef = [...value];
+    valueRef.forEach((val) => {
+      val.selected = false;
+    });
     setValue(valueRef);
   };
 
@@ -51,8 +61,8 @@ const MultiSelect = ({
     }
   }, [value]);
 
-  const MultiSelectContainer = () => (
-    <MultiSelectWrapper data-testid={identifier}>
+  const SingleSelectContainer = () => (
+    <SingleSelectWrapper>
       <QuestionIndex index={index} />
       <Label>
         {headline}
@@ -63,31 +73,31 @@ const MultiSelect = ({
           value.map((choice, idx) => {
             return (
               <InputWrapper key={choice.label}>
-                <StyledMultiSelect
-                  type="checkbox"
+                <StyledSingleSelect
+                  type="radio"
                   id={choice.label}
                   name={identifier}
-                  value={choice.value}
                   checked={choice.selected}
                   onChange={() => onHandleChange(idx)}
+                  onClick={() => onHandleClick(idx)}
                 />
                 <RadioDescription>{choice.value}</RadioDescription>
               </InputWrapper>
             );
           })}
       </GroupedRadio>
-    </MultiSelectWrapper>
+    </SingleSelectWrapper>
   );
 
   return animation === "next" ? (
     <SlideNext>
-      <MultiSelectContainer />
+      <SingleSelectContainer />
     </SlideNext>
   ) : (
     <SlidePrevious>
-      <MultiSelectContainer />
+      <SingleSelectContainer />
     </SlidePrevious>
   );
 };
 
-export default React.memo(MultiSelect);
+export default React.memo(SingleSelect);

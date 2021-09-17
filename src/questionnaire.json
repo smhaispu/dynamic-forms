@@ -9,7 +9,7 @@
         "identifier": "list_12110962",
         "headline": "Wen möchtest Du versichern?",
         "description": null,
-        "required": true,
+        "required": false,
         "multiple": true,
         "choices": [
           {
@@ -66,7 +66,7 @@
         "identifier": "list_12111777",
         "headline": "Möchtest Du eine Forderungsausfalldeckung absichern?",
         "description": null,
-        "required": false,
+        "required": true,
         "multiple": false,
         "choices": [
           {

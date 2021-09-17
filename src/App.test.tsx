@@ -1,8 +1,8 @@
 import React from "react";
 import { screen } from "@testing-library/react";
-import { customRender, testingInitialState } from "./Utilities/Constants";
-import Header from "./Components/SubComponents/Header";
-import Loader from "./Utilities/Loader";
+import { customRender, testingInitialState } from "./utilities/Constants";
+import Header from "./components/layouts/Header";
+import Loader from "./utilities/Loader";
 
 test("Check Header", () => {
   const initialState = testingInitialState;

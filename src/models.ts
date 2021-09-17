@@ -4,7 +4,7 @@ export interface IChoice {
     selected: boolean
 }
 
-export interface IQuestionList {
+export interface IQuestion {
     question_type: "text" | "multiple-choice",
     identifier: string,
     headline: string,
@@ -22,7 +22,7 @@ export interface IQuestionaire {
     id: number,
     identifier: string,
     name: string,
-    questions: IQuestionList[],
+    questions: IQuestion[],
     description: string,
     category_name_hyphenated: string
 }

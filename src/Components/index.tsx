@@ -1,21 +1,21 @@
 import React, { ReactElement } from "react";
 import { IQuestionaire } from "../models";
-import { FormWrapper } from "./index.style";
-import Form from "./FormElements/Form";
+import { StyledFormWrapper } from "./index.style";
+import Form from "./layouts/Form";
 
 const questionnaire: IQuestionaire = require("../questionnaire.json")
   .questionnaire;
 
-interface Props {}
-
-export default function ({}: Props): ReactElement {
+const FormWrapper = (): ReactElement => {
   return (
     <>
-      <FormWrapper data-testid="form-wrapper">
+      <StyledFormWrapper data-testid="form-wrapper">
         {questionnaire.questions && questionnaire.questions.length > 0 && (
           <Form />
         )}
-      </FormWrapper>
+      </StyledFormWrapper>
     </>
   );
-}
+};
+
+export default FormWrapper;

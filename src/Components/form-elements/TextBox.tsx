@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Input, StyledTextBox } from "./TextBox.style";
 import { Label, SlideNext, SlidePrevious } from "../index.style";
 import { ITextProps } from "../../models";
-import QuestionIndex from "../SubComponents/QuestionIndex";
+import QuestionIndex from "../layouts/QuestionIndex";
 import { Context } from "../../state-management/context";
 
 const TextBox = ({
@@ -40,7 +40,7 @@ const TextBox = ({
   const TextBoxContent = (
     <StyledTextBox>
       <QuestionIndex index={index} />
-      <Label>
+      <Label data-testid="text-box-label">
         {headline} {required ? " *" : ""}
       </Label>
       <Input
@@ -49,6 +49,7 @@ const TextBox = ({
         required={required}
         placeholder={"Please enter value here..."}
         onChange={(e: any) => setValue(e.target.value)}
+        data-testid="text-box-input"
       />
     </StyledTextBox>
   );

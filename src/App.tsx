@@ -2,11 +2,11 @@ import "./App.css";
 import React, { useEffect } from "react";
 import { FormReducer } from "./state-management/reducer";
 import { Context, initialState } from "./state-management/context";
-import Loader from "./Utilities/Loader";
-import QuestionForm from "./Components/index";
+import Loader from "./utilities/Loader";
+import QuestionForm from "./components/index";
 import { IQuestionaire } from "./models";
-import Header from "./Components/SubComponents/Header";
-import DataSubmitted from "./Components/SubComponents/DataSubmitted";
+import Header from "./components/layouts/Header";
+import DataSubmitted from "./components/layouts/DataSubmitted";
 const questionnaire: IQuestionaire = require("./questionnaire.json")
   .questionnaire;
 function App() {

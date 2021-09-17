@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ITextProps } from "../../models";
 import { Label, SlidePrevious, SlideNext } from "../index.style";
 import { StyledTextAreaWrapper, StyledTextArea } from "./TextArea.style";
-import QuestionIndex from "../SubComponents/QuestionIndex";
+import QuestionIndex from "../layouts/QuestionIndex";
 import { Context } from "../../state-management/context";
 
 const TextArea = ({
